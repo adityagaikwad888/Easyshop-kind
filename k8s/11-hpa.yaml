@@ -1,4 +1,4 @@
-apiVersion: autoscalling/v2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 
 metadata:
@@ -10,13 +10,12 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: easyshop # This should match the name of the deployment
-
-    minReplicas: 2
-    maxReplicas: 4
-    metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 50 # This is the target CPU utilization percentage
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50 # This is the target CPU utilization percentage
